@@ -1,5 +1,5 @@
 {
-  "name": "imcanugur/cerberus",
+  "name": "the-cans-group/cerberus",
   "description": "Flexible auth / token / utils toolkit for Laravel 12",
   "keywords": ["laravel", "token", "auth", "sanctum", "security"],
   "type": "library",
