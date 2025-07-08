@@ -1,0 +1,48 @@
+{
+  "name": "imcanugur/cerberus",
+  "description": "Flexible auth / token / utils toolkit for Laravel 12",
+  "keywords": ["laravel", "token", "auth", "sanctum", "security"],
+  "type": "library",
+  "license": "MIT",
+    "version": "1.0.0",
+
+    "authors": [
+    {"name": "Uğur CAN", "email": "hello@thecans.co"}
+  ],
+  "require": {
+    "php": "^8.3",
+    "illuminate/support": "^12.0",
+    "illuminate/database": "^12.0"
+  },
+  "require-dev": {
+    "pestphp/pest": "^2.0",
+    "laravel/pint": "^1.0",
+    "orchestra/testbench": "^9.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Cerberus\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Cerberus\\Tests\\": "tests/"
+    }
+  },
+  "extra": {
+    "laravel": {
+        "providers": [
+            "Cerberus\\CerberusProvider"
+        ],
+        "aliases": {
+            "Cerberus": "Cerberus\\Facades\\Cerberus"
+        }
+    }
+  },
+  "scripts": {
+    "format": "pint --test",
+    "test": "pest"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}
