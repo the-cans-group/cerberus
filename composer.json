@@ -4,7 +4,7 @@
   "keywords": ["laravel", "token", "auth", "sanctum", "security"],
   "type": "library",
   "license": "MIT",
-    "version": "0.0.3",
+    "version": "0.0.4",
 
     "authors": [
     {"name": "Uğur CAN", "email": "hello@thecans.co"}
