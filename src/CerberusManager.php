@@ -239,4 +239,15 @@ class CerberusManager
     {
         return $session->device_fingerprint === $fingerprint;
     }
+
+    /**
+     * Finds a device by its ID.
+     *
+     * @param string $deviceId The ID of the device to find.
+     * @return object|null The device object if found, null otherwise.
+     */
+    public function findDeviceById(string $deviceId): ?object
+    {
+        return DB::table('cerberus_user_devices')->where('id', $deviceId)->first();
+    }
 }

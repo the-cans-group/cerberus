@@ -35,9 +35,16 @@ class CerberusGuard implements Guard
                 return null;
             }
 
-            $userModel = config('auth.providers.users.model');
-            $user = (new $userModel)->find($session->user_id);
+            $device = $this->manager->findDeviceById($session->device_id);
 
+            if (! $device) {
+                return null;
+            }
+
+            $authenticatableModel = $device->authenticatable_type;
+            $authenticatableId = $device->authenticatable_id;
+
+            $user = (new $authenticatableModel)->find($authenticatableId);
             if ($user) {
                 $this->manager->updateSessionActivity($token, $this->request->ip());
                 $this->user = $user;
