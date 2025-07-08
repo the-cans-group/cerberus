@@ -4,6 +4,7 @@ namespace Cerberus;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Auth;
 use Cerberus\Auth\CerberusGuard;
+use Illuminate\Contracts\Auth\Factory as AuthFactory;
 
 /**
  * CerberusServiceProvider
@@ -40,6 +41,14 @@ class CerberusProvider extends ServiceProvider
         $this->app->singleton('cerberus', function () {
             return new CerberusService();
         });
+
+
+        $this->app->extend(
+            \Illuminate\Auth\Middleware\Authenticate::class,
+            function ($middleware, $app) {
+                return new \Cerberus\Http\Middleware\CerberusAuthenticate($app->make(AuthFactory::class));
+            }
+        );
 
     }
 
